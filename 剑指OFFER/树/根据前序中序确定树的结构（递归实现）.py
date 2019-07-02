@@ -25,6 +25,7 @@ def print_before(node):#再次打印前序遍历，对比输入结果。
     print(node.data)
     print_before(node.lc)
     print_before(node.rc)
+    
 import unittest
 
 class MyTest(unittest.TestCase):
