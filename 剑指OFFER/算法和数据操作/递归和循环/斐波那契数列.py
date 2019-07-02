@@ -24,12 +24,29 @@ def fibonacci_count(n):
   return rtn
 
 #装饰器实现
+def memo(func):
+    cache = {}
+    def wrap(*args):
+        res = cache.get(args)
+        if not res:
+            res = cache[args] = func(*args)
+        return res
+
+    return wrap
+
+@memo
+def fibonacci(n):
+    if n == 1:
+      return 1
+    elif n==0:
+      return 0
+    return fibonacci(n-1) + fibonacci(n-2)
 
 
 import unittest
 
 class MyTest(unittest.TestCase):
   def test_01(self): 
-    print(fibonacci_count(10),fibonacci_recursion(10))
+    print(fibonacci_count(10),fibonacci_recursion(10),fibonacci(10))
 if __name__ == '__main__':
   unittest.main()
