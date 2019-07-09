@@ -29,34 +29,6 @@ def constructor(data_arr,angle_arr):
       p1.angle=None
   return head
 
-def normal_copy(head):
-  p_for_copy_data=head.next
-  new_link_head=Node(head.data)
-  p_for_new_link_head_data=new_link_head
-  while p_for_copy_data is not None:
-    p_for_new_link_head_data.next=Node(p_for_copy_data.data,p_for_copy_data.number)
-    p_for_new_link_head_data=p_for_new_link_head_data.next
-    p_for_copy_data=p_for_copy_data.next
-  #copy data ok
-
-  p_for_copy_angle=head.next
-  p_for_new_link_head_angle=new_link_head  
-  while p_for_copy_angle is not None:
-    p_for_new_link_head_angle.angle=find_node(new_link_head,p_for_copy_angle.number)
-    p_for_new_link_head_angle=p_for_copy_angle.next
-    p_for_copy_angle=p_for_copy_angle.next
-  #copy angle ok
-
-  return new_link_head
-
-def find_node(head,n):
-  for i in range(n):
-    if head.next is None:
-      return "error"
-    else:
-      head=head.next
-  return head
-
 def quick_copy(head):
   p=head
 
@@ -65,6 +37,7 @@ def quick_copy(head):
 
   print("copy ok")
   #copy ok
+  print_link(head)
   rtn=divide(head)
    #divide ok
   return rtn
@@ -91,11 +64,11 @@ def divide(head):
   if head is None:
     return None
   new_head=head.next
-  head=head.next.next
+  new_head_p=new_head
+  head=head.next
   while 1:
     if head is None:
-      return new_head
-    print(new_head.data)
+      return new_head_p
     if flag is 1:
       new_head.next=head.next
       new_head=new_head.next
@@ -104,6 +77,8 @@ def divide(head):
     elif flag is 0:
       head=head.next
       flag=1
+
+  
 
 def print_link(head):
   while 1:
