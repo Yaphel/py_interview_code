@@ -1,13 +1,4 @@
 def count1(number):
-#  if len(number) is 1:
-#    if int(number) is 1:
-#      return 1
-#    else:
-#      return 0
-#  if number[0] is '1':
-#    return int(str[1:])+count1(number[1:])+count1('9'*(len(number)-1))+1
-#  else:
-#    return (int(number[0])-2)*count1('9'*(len(number)-1))+count1(number[1:])+count1('1'+'9'*(len(number)-1))
   if number<1:
     return "error input"
   if number<10:
