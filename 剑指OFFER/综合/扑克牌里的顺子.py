@@ -3,7 +3,7 @@
 #A-K为 1-13
 
 #大小王为0
-
+#检查癞子
 def check_lai(arr):
   lai=0
   for i in arr:
@@ -11,8 +11,12 @@ def check_lai(arr):
       lai+=1
   return lai
 
+
 def judge(arr):
   arr.sort()
+  arr=list(set(arr))
+  if len(arr) is not 5:
+    return False
   for i in arr:
     if i is not 0:
       start=i
@@ -22,4 +26,4 @@ def judge(arr):
   else:
     return False
 
-print(judge([1,2,3,4,5]))
+print(judge([1,0,3,3,5]))
